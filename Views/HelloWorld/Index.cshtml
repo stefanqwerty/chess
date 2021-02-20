@@ -1,0 +1,85 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="imgbox">
+    <img class="chess-board" src="@Url.Content("~/images/Chess_Board.png")" alt="Chess Board">
+
+
+    @{
+
+        var ChessBoard = new int[8, 8];
+
+        var Pawn = 1;
+        var Rook = 2;
+        var Knight = 3;
+        var BlackBishop = 4;
+        var WhiteBishop = 5;
+        var Queen = 6;
+        var King = 7;
+
+        var PiecesImgages = new string[15];
+        PiecesImgages[1] = "white_pawn.png";
+        PiecesImgages[2] = "white_rook.png";
+        PiecesImgages[3] = "white_knight.png";
+        PiecesImgages[4] = "white_bishop.png";
+        PiecesImgages[5] = "white_bishop.png";
+        PiecesImgages[6] = "white_queen.png";
+        PiecesImgages[7] = "white_king.png";
+
+        PiecesImgages[8] = "black_pawn.png";
+        PiecesImgages[9] = "black_rook.png";
+        PiecesImgages[10] = "black_knight.png";
+        PiecesImgages[11] = "black_bishop.png";
+        PiecesImgages[12] = "black_bishop.png";
+        PiecesImgages[13] = "black_queen.png";
+        PiecesImgages[14] = "black_king.png";
+
+        for (int i = 0; i < 8; i++)
+        {
+            ChessBoard[1, i] = Pawn;
+        }
+
+        for (int i = 0; i < 8; i++)
+        {
+            ChessBoard[6, i] = 7 + Pawn;
+        }
+
+        ChessBoard[0, 0] = Rook;
+        ChessBoard[0, 7] = Rook;
+
+        ChessBoard[0, 1] = Knight;
+        ChessBoard[0, 6] = Knight;
+
+        ChessBoard[0, 2] = WhiteBishop;
+        ChessBoard[0, 5] = WhiteBishop;
+
+        ChessBoard[0, 3] = Queen;
+        ChessBoard[0, 4] = King;
+
+        ChessBoard[7, 0] = 7 + Rook;
+        ChessBoard[7, 7] = 7 + Rook;
+
+        ChessBoard[7, 1] = 7 + Knight;
+        ChessBoard[7, 6] = 7 + Knight;
+
+        ChessBoard[7, 2] = 7 + WhiteBishop;
+        ChessBoard[7, 5] = 7 + WhiteBishop;
+
+        ChessBoard[7, 3] = 7 + Queen;
+        ChessBoard[7, 4] = 7 + King;
+
+        for (int i = 0; i < 8; i++)
+        {
+            for (int j = 0; j < 8; j++)
+            {
+                var PieceValue = ChessBoard[i, j];
+                if (PieceValue > 0)
+                {
+                    var Filename = $"~/images/{PiecesImgages[PieceValue]}";
+                    <img class="chess-pieces" id="piece@(i)@(j)" src="@Url.Content(Filename)" alt="Chess Board">
+                }
+            }
+        }
+    }
+</div>
