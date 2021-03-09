@@ -19,13 +19,16 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="HelloWorld" asp-action="Index">Play AI</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Game" asp-action="Index">Play AI</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="HelloWorld" asp-action="Game" asp-route-ID="0">Play yourself</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Game" asp-action="Number" asp-route-num="22">Play yourself</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="HelloWorld" asp-action="Game" asp-route-ID="1024">Play online</a>
+                            <a class="nav-link text-dark" onclick="GetNumberFromServer()">Play online</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" onclick="GetChessBoardFromServer()">Get cm</a>
                         </li>
                     </ul>
                 </div>
@@ -47,5 +50,30 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    
+    <script>
+        function GetNumberFromServer() {
+            const uri = 'Game/Number'
+            fetch(`${uri}?num=${35}`, {
+                method: 'GET'
+            })
+                .then((res) =>
+                    alert(res))
+                
+                .catch(error => console.error('error:', error));
+        }
+
+        function GetChessBoardFromServer() {
+            const uri = 'Game/GetChessMatrix'
+            fetch(uri)
+                .then(response => response.json())
+                .then(data =>
+                    alert(data))
+                .catch(error => console.error('error:', error));
+
+
+        }
+    </script>
+
 </body>
 </html>

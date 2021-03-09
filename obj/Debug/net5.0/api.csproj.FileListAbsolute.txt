@@ -53,4 +53,3 @@ C:\Users\stefa\source\repos\api\bin\Debug\net5.0\wwwroot\images\white_knight.png
 C:\Users\stefa\source\repos\api\bin\Debug\net5.0\wwwroot\images\white_pawn.png
 C:\Users\stefa\source\repos\api\bin\Debug\net5.0\wwwroot\images\white_queen.png
 C:\Users\stefa\source\repos\api\bin\Debug\net5.0\wwwroot\images\white_rook.png
-C:\Users\stefa\source\repos\api\obj\Debug\net5.0\api.csprojAssemblyReference.cache

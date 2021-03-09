@@ -2,84 +2,217 @@
     ViewData["Title"] = "Index";
 }
 
-<div class="imgbox">
-    <img class="chess-board" src="@Url.Content("~/images/Chess_Board.png")" alt="Chess Board">
+<body onresize="ArrangePieces()" onclick="MoveIfNecessary(event)" onload="ArrangePieces()">
+    <div class="imgbox">
+        <img class="chess-board" id="ChessBoard" src="@Url.Content("~/images/Chess_Board.png")" alt="Chess Board">
 
+        <button type="button" onclick="ArrangePieces()">Click me!</button>
 
-    @{
+        @{
 
-        var ChessBoard = new int[8, 8];
+            var ChessBoard = new int[8, 8];
 
-        var Pawn = 1;
-        var Rook = 2;
-        var Knight = 3;
-        var BlackBishop = 4;
-        var WhiteBishop = 5;
-        var Queen = 6;
-        var King = 7;
+            var FlipBoard = 1;
 
-        var PiecesImgages = new string[15];
-        PiecesImgages[1] = "white_pawn.png";
-        PiecesImgages[2] = "white_rook.png";
-        PiecesImgages[3] = "white_knight.png";
-        PiecesImgages[4] = "white_bishop.png";
-        PiecesImgages[5] = "white_bishop.png";
-        PiecesImgages[6] = "white_queen.png";
-        PiecesImgages[7] = "white_king.png";
+            var Pawn = 1;
+            var Rook = 2;
+            var Knight = 3;
+            var BlackBishop = 4;
+            var WhiteBishop = 5;
+            var Queen = 6;
+            var King = 7;
 
-        PiecesImgages[8] = "black_pawn.png";
-        PiecesImgages[9] = "black_rook.png";
-        PiecesImgages[10] = "black_knight.png";
-        PiecesImgages[11] = "black_bishop.png";
-        PiecesImgages[12] = "black_bishop.png";
-        PiecesImgages[13] = "black_queen.png";
-        PiecesImgages[14] = "black_king.png";
+            var PiecesImgages = new string[15];
 
-        for (int i = 0; i < 8; i++)
-        {
-            ChessBoard[1, i] = Pawn;
-        }
+            PiecesImgages[1] = "white_pawn.png";
+            PiecesImgages[2] = "white_rook.png";
+            PiecesImgages[3] = "white_knight.png";
+            PiecesImgages[4] = "white_bishop.png";
+            PiecesImgages[5] = "white_bishop.png";
+            PiecesImgages[6] = "white_queen.png";
+            PiecesImgages[7] = "white_king.png";
 
-        for (int i = 0; i < 8; i++)
-        {
-            ChessBoard[6, i] = 7 + Pawn;
-        }
+            PiecesImgages[8] = "black_pawn.png";
+            PiecesImgages[9] = "black_rook.png";
+            PiecesImgages[10] = "black_knight.png";
+            PiecesImgages[11] = "black_bishop.png";
+            PiecesImgages[12] = "black_bishop.png";
+            PiecesImgages[13] = "black_queen.png";
+            PiecesImgages[14] = "black_king.png";
 
-        ChessBoard[0, 0] = Rook;
-        ChessBoard[0, 7] = Rook;
-
-        ChessBoard[0, 1] = Knight;
-        ChessBoard[0, 6] = Knight;
-
-        ChessBoard[0, 2] = WhiteBishop;
-        ChessBoard[0, 5] = WhiteBishop;
-
-        ChessBoard[0, 3] = Queen;
-        ChessBoard[0, 4] = King;
-
-        ChessBoard[7, 0] = 7 + Rook;
-        ChessBoard[7, 7] = 7 + Rook;
-
-        ChessBoard[7, 1] = 7 + Knight;
-        ChessBoard[7, 6] = 7 + Knight;
-
-        ChessBoard[7, 2] = 7 + WhiteBishop;
-        ChessBoard[7, 5] = 7 + WhiteBishop;
-
-        ChessBoard[7, 3] = 7 + Queen;
-        ChessBoard[7, 4] = 7 + King;
-
-        for (int i = 0; i < 8; i++)
-        {
-            for (int j = 0; j < 8; j++)
+            for (var i = 0; i < 8; i++)
             {
-                var PieceValue = ChessBoard[i, j];
-                if (PieceValue > 0)
+                ChessBoard[1, i] = 7 + Pawn;
+            }
+
+            for (var i = 0; i < 8; i++)
+            {
+                ChessBoard[6, i] = Pawn;
+            }
+
+            ChessBoard[0, 0] = 7 + Rook;
+            ChessBoard[0, 7] = 7 + Rook;
+
+            ChessBoard[0, 1] = 7 + Knight;
+            ChessBoard[0, 6] = 7 + Knight;
+
+            ChessBoard[0, 2] = 7 + BlackBishop;
+            ChessBoard[0, 5] = 7 + WhiteBishop;
+
+            ChessBoard[0, 3] = 7 + Queen;
+            ChessBoard[0, 4] = 7 + King;
+
+            ChessBoard[7, 0] = Rook;
+            ChessBoard[7, 7] = Rook;
+
+            ChessBoard[7, 1] = Knight;
+            ChessBoard[7, 6] = Knight;
+
+            ChessBoard[7, 2] = BlackBishop;
+            ChessBoard[7, 5] = WhiteBishop;
+
+            ChessBoard[7, 3] = Queen;
+            ChessBoard[7, 4] = King;
+
+            for (var i = 0; i < 8; i++)
+            {
+                for (var j = 0; j < 8; j++)
                 {
-                    var Filename = $"~/images/{PiecesImgages[PieceValue]}";
-                    <img class="chess-pieces" id="piece@(i)@(j)" src="@Url.Content(Filename)" alt="Chess Board">
+                    var PieceValue = ChessBoard[i, j];
+                    if (PieceValue > 0)
+                    {
+                        var Filename = $"~/images/{PiecesImgages[PieceValue]}";
+                        <img class="chess-pieces" id="piece@(i)@(j)" src="@Url.Content(Filename)" alt="Chess Board">
+                    }
                 }
             }
+
+            void Move(int i1, int j1, int i2, int j2)
+            {
+                ChessBoard[i2, j2] = ChessBoard[i1, j1];
+                ChessBoard[i1, j1] = 0;
+            }
         }
-    }
-</div>
+
+        <script>
+            function ArrangePieces() {
+                var board = document.getElementById('ChessBoard');
+                var Pos = board.offsetLeft;
+                var topPos = board.offsetTop;
+                var boardSize = board.offsetHeight;
+                var pieceSize = boardSize / 8;
+                var piece;
+                console.log(Pos);
+                console.log(topPos);
+                for (i = 0; i < 8; i++) {
+                    for (j = 0; j < 8; j++) {
+                        piece = document.getElementById('piece' + i + j);
+                        if (piece !== null) {
+
+                            document.getElementById('piece' + i + j).style.left = Pos + j * pieceSize + 'px';
+                            document.getElementById('piece' + i + j).style.top = topPos + i * pieceSize + 'px';
+                            console.log('piece' + i + j);
+                        }
+                    }
+                }
+            }
+
+            var MousePosition = null;
+
+            var initialiindex = null;
+            var initialjindex = null;
+
+            var finaliindex;
+            var finaljindex;
+
+            function MoveIfNecessary(e) {
+                var MeaningfulVariableName = e;
+
+                if (MousePosition === null) {
+                    GetMouseCoords(MeaningfulVariableName);
+                    if (MousePosition !== null) {
+                        TransformPosition(MousePosition);
+                    }
+                    return;
+                }
+
+                if (MousePosition !== null) {
+                    GetMouseCoords(MeaningfulVariableName);
+                    TransformPosition(MousePosition);
+                    if (MousePosition !== null) {
+                        @{
+                            //Move(initialiindex, initialjindex, finaliindex, finaljindex);
+                                }
+                        ArrangePieces();
+                    }
+                    MousePosition = null;
+                    return;
+                }
+            }
+
+            function GetMouseCoords(event) {
+                var xpos = event.clientX;
+                var ypos = event.clientY;
+                var board = document.getElementById('ChessBoard');
+                var leftPos = board.offsetLeft;
+                var topPos = board.offsetTop;
+                var boardSize = board.offsetHeight;
+
+                if (leftPos <= xpos && topPos <= ypos && (leftPos + boardSize) >= xpos && (topPos + boardSize) >= ypos) {
+                    MousePosition = "" + xpos + " " + ypos;
+                }
+                else {
+                    MousePosition = null;
+                }
+                console.log(MousePosition);
+            }
+
+            function TransformPosition(PointerPosition) {
+
+                var spacePos = PointerPosition.search(" ");
+                var pointerXpos = PointerPosition.substring(0, spacePos);
+                var pointerYpos = PointerPosition.substring(spacePos + 1, PointerPosition.length);
+
+                var board = document.getElementById('ChessBoard');
+                var boardLeftPos = board.offsetLeft;
+                var boardTopPos = board.offsetTop;
+                var boardSize = board.offsetHeight;
+                var squareSize = boardSize / 8;
+
+                var i;
+                var j;
+
+                for (i = 0; i < 8; i++) {
+                    for (j = 0; j < 8; j++) {
+                        if ((i * squareSize) + boardLeftPos < pointerXpos
+                            && ((i + 1) * squareSize + 1) + boardLeftPos > pointerXpos
+                            && (j * squareSize) + boardTopPos < pointerYpos
+                            && ((j + 1) * squareSize) + boardTopPos > pointerYpos) {
+                            if (initialiindex === null) {
+                                initialiindex = i;
+                                initialjindex = j;
+                            }
+                            else {
+                                finaliindex = i;
+                                finaljindex = j;
+                            }
+
+                        }
+                    }
+                }
+
+                console.log(initialiindex);
+                console.log(initialjindex);
+                console.log(finaliindex);
+                console.log(finaljindex);
+
+            }
+
+        </script>
+        <script>
+
+        </script>
+    </div>
+
+</body>
+
