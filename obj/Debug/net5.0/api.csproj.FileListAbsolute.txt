@@ -22,7 +22,6 @@ C:\Users\stefa\source\repos\api\obj\Debug\net5.0\scopedcss\bundle\api.styles.css
 C:\Users\stefa\source\repos\api\obj\Debug\net5.0\api.TagHelpers.input.cache
 C:\Users\stefa\source\repos\api\obj\Debug\net5.0\api.TagHelpers.output.cache
 C:\Users\stefa\source\repos\api\obj\Debug\net5.0\api.RazorCoreGenerate.cache
-C:\Users\stefa\source\repos\api\obj\Debug\net5.0\Razor\Views\HelloWorld\Index.cshtml.g.cs
 C:\Users\stefa\source\repos\api\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\stefa\source\repos\api\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\stefa\source\repos\api\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
@@ -53,3 +52,5 @@ C:\Users\stefa\source\repos\api\bin\Debug\net5.0\wwwroot\images\white_knight.png
 C:\Users\stefa\source\repos\api\bin\Debug\net5.0\wwwroot\images\white_pawn.png
 C:\Users\stefa\source\repos\api\bin\Debug\net5.0\wwwroot\images\white_queen.png
 C:\Users\stefa\source\repos\api\bin\Debug\net5.0\wwwroot\images\white_rook.png
+C:\Users\stefa\source\repos\api\obj\Debug\net5.0\Razor\Views\Game\Index.cshtml.g.cs
+C:\Users\stefa\source\repos\api\obj\Debug\net5.0\api.csprojAssemblyReference.cache

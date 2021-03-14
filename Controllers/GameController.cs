@@ -5,6 +5,9 @@ using System.Web;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Diagnostics;
 
 namespace api
 {
@@ -29,12 +32,12 @@ namespace api
             return GetNumber();
         }
 
-        public ActionResult<ChessMatrix> GetChessMatrix()
+        /*public ActionResult<ChessMatrix> GetChessMatrix()
         {
             var cm = CreateChessMatrix();
             return cm;
         }
-
+        */
         private string GetNumber()
         {
             var number = 0;
@@ -51,7 +54,7 @@ namespace api
             System.IO.File.WriteAllText(fn, number.ToString());
         }
 
-        private ChessMatrix CreateChessMatrix()
+        /*private ChessMatrix CreateChessMatrix()
         {
             ChessMatrix cm = new ChessMatrix();
 
@@ -117,6 +120,27 @@ namespace api
 
             return cm;
 
+        }*/
+
+        public string returnjson()
+        {
+            Piece p = new Piece(Colour: Colour.Black, PieceType: PieceType.King, ImageFile: string.Empty);
+            var js = JsonSerializer.Serialize(p);
+
+            Game game = new Game();
+            game.Init();
+            string json = JsonSerializer.Serialize(game.ChessBoard);
+
+            //for (int i = 0; i < 8; i++)
+            //{
+            //    for (int j = 0; j < 8; j++)
+            //    {
+            //        Debug.Write(game.ChessBoard);
+            //    }
+            //    Debug.Write(System.Environment.NewLine);
+            //}
+
+            return json;
         }
     }
 }
