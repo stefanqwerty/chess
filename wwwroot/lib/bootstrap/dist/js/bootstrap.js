@@ -192,7 +192,7 @@
           var value = config[property];
           var valueType = value && Util.isElement(value) ? 'element' : toType(value);
 
-          if (!new RegExp(expectedTypes).test(valueType)) {
+          if (!new RegExp(expectedTypes).Test(valueType)) {
             throw new Error(componentName.toUpperCase() + ": " + ("Option \"" + property + "\" provided type \"" + valueType + "\" ") + ("but expected type \"" + expectedTypes + "\"."));
           }
         }
@@ -526,7 +526,7 @@
     Button._jQueryInterface.call($(button), 'toggle');
   }).on(Event$1.FOCUS_BLUR_DATA_API, Selector$1.DATA_TOGGLE_CARROT, function (event) {
     var button = $(event.target).closest(Selector$1.BUTTON)[0];
-    $(button).toggleClass(ClassName$1.FOCUS, /^focus(in)?$/.test(event.type));
+    $(button).toggleClass(ClassName$1.FOCUS, /^focus(in)?$/.Test(event.type));
   });
   /**
    * ------------------------------------------------------------------------
@@ -872,7 +872,7 @@
     };
 
     _proto._keydown = function _keydown(event) {
-      if (/input|textarea/i.test(event.target.tagName)) {
+      if (/input|textarea/i.Test(event.target.tagName)) {
         return;
       }
 
@@ -1431,7 +1431,7 @@
 
         var _config = _objectSpread({}, Default$1, $this.data(), typeof config === 'object' && config ? config : {});
 
-        if (!data && _config.toggle && /show|hide/.test(config)) {
+        if (!data && _config.toggle && /show|hide/.Test(config)) {
           _config.toggle = false;
         }
 
@@ -1887,7 +1887,7 @@
           continue;
         }
 
-        if (event && (event.type === 'click' && /input|textarea/i.test(event.target.tagName) || event.type === 'keyup' && event.which === TAB_KEYCODE) && $.contains(parent, event.target)) {
+        if (event && (event.type === 'click' && /input|textarea/i.Test(event.target.tagName) || event.type === 'keyup' && event.which === TAB_KEYCODE) && $.contains(parent, event.target)) {
           continue;
         }
 
@@ -1930,7 +1930,7 @@
       //  - If key is other than escape
       //    - If key is not up or down => not a dropdown command
       //    - If trigger inside the menu => not a dropdown command
-      if (/input|textarea/i.test(event.target.tagName) ? event.which === SPACE_KEYCODE || event.which !== ESCAPE_KEYCODE && (event.which !== ARROW_DOWN_KEYCODE && event.which !== ARROW_UP_KEYCODE || $(event.target).closest(Selector$4.MENU).length) : !REGEXP_KEYDOWN.test(event.which)) {
+      if (/input|textarea/i.Test(event.target.tagName) ? event.which === SPACE_KEYCODE || event.which !== ESCAPE_KEYCODE && (event.which !== ARROW_DOWN_KEYCODE && event.which !== ARROW_UP_KEYCODE || $(event.target).closest(Selector$4.MENU).length) : !REGEXP_KEYDOWN.Test(event.which)) {
         return;
       }
 
@@ -3375,7 +3375,7 @@
 
         var _config = typeof config === 'object' && config;
 
-        if (!data && /dispose|hide/.test(config)) {
+        if (!data && /dispose|hide/.Test(config)) {
           return;
         }
 
@@ -3561,7 +3561,7 @@
 
         var _config = typeof config === 'object' ? config : null;
 
-        if (!data && /dispose|hide/.test(config)) {
+        if (!data && /dispose|hide/.Test(config)) {
           return;
         }
 

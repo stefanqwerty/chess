@@ -191,7 +191,7 @@
           var value = config[property];
           var valueType = value && Util.isElement(value) ? 'element' : toType(value);
 
-          if (!new RegExp(expectedTypes).test(valueType)) {
+          if (!new RegExp(expectedTypes).Test(valueType)) {
             throw new Error(componentName.toUpperCase() + ": " + ("Option \"" + property + "\" provided type \"" + valueType + "\" ") + ("but expected type \"" + expectedTypes + "\"."));
           }
         }
@@ -525,7 +525,7 @@
     Button._jQueryInterface.call($(button), 'toggle');
   }).on(Event$1.FOCUS_BLUR_DATA_API, Selector$1.DATA_TOGGLE_CARROT, function (event) {
     var button = $(event.target).closest(Selector$1.BUTTON)[0];
-    $(button).toggleClass(ClassName$1.FOCUS, /^focus(in)?$/.test(event.type));
+    $(button).toggleClass(ClassName$1.FOCUS, /^focus(in)?$/.Test(event.type));
   });
   /**
    * ------------------------------------------------------------------------
@@ -871,7 +871,7 @@
     };
 
     _proto._keydown = function _keydown(event) {
-      if (/input|textarea/i.test(event.target.tagName)) {
+      if (/input|textarea/i.Test(event.target.tagName)) {
         return;
       }
 
@@ -1430,7 +1430,7 @@
 
         var _config = _objectSpread({}, Default$1, $this.data(), typeof config === 'object' && config ? config : {});
 
-        if (!data && _config.toggle && /show|hide/.test(config)) {
+        if (!data && _config.toggle && /show|hide/.Test(config)) {
           _config.toggle = false;
         }
 
@@ -1647,7 +1647,7 @@
         overflowX = _getStyleComputedProp.overflowX,
         overflowY = _getStyleComputedProp.overflowY;
 
-    if (/(auto|scroll|overlay)/.test(overflow + overflowY + overflowX)) {
+    if (/(auto|scroll|overlay)/.Test(overflow + overflowY + overflowX)) {
       return element;
     }
 
@@ -1655,7 +1655,7 @@
   }
 
   var isIE11 = isBrowser && !!(window.MSInputMethodContext && document.documentMode);
-  var isIE10 = isBrowser && /MSIE 10/.test(navigator.userAgent);
+  var isIE10 = isBrowser && /MSIE 10/.Test(navigator.userAgent);
 
   /**
    * Determines if the browser is Internet Explorer
@@ -2757,7 +2757,7 @@
     };
   }
 
-  var isFirefox = isBrowser && /Firefox/i.test(navigator.userAgent);
+  var isFirefox = isBrowser && /Firefox/i.Test(navigator.userAgent);
 
   /**
    * @function
@@ -2766,7 +2766,7 @@
    * @argument {Object} options - Modifiers configuration and options
    * @returns {Object} The data object, properly modified
    */
-  function computeStyle(data, options) {
+  function compuTestyle(data, options) {
     var x = options.x,
         y = options.y;
     var popper = data.offsets.popper;
@@ -2777,7 +2777,7 @@
       return modifier.name === 'applyStyle';
     }).gpuAcceleration;
     if (legacyGpuAccelerationOption !== undefined) {
-      console.warn('WARNING: `gpuAcceleration` option moved to `computeStyle` modifier and will not be supported in future versions of Popper.js!');
+      console.warn('WARNING: `gpuAcceleration` option moved to `compuTestyle` modifier and will not be supported in future versions of Popper.js!');
     }
     var gpuAcceleration = legacyGpuAccelerationOption !== undefined ? legacyGpuAccelerationOption : options.gpuAcceleration;
 
@@ -3767,13 +3767,13 @@
      * @memberof modifiers
      * @inner
      */
-    computeStyle: {
+    compuTestyle: {
       /** @prop {number} order=850 - Index used to define the order of execution */
       order: 850,
       /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
       enabled: true,
       /** @prop {ModifierFn} */
-      fn: computeStyle,
+      fn: compuTestyle,
       /**
        * @prop {Boolean} gpuAcceleration=true
        * If true, it uses the CSS 3D transformation to position the popper.
@@ -3819,7 +3819,7 @@
       /** @prop {Function} */
       onLoad: applyStyleOnLoad,
       /**
-       * @deprecated since version 1.10.0, the property moved to `computeStyle` modifier
+       * @deprecated since version 1.10.0, the property moved to `compuTestyle` modifier
        * @prop {Boolean} gpuAcceleration=true
        * If true, it uses the CSS 3D transformation to position the popper.
        * Otherwise, it will use the `top` and `left` properties
@@ -4465,7 +4465,7 @@
           continue;
         }
 
-        if (event && (event.type === 'click' && /input|textarea/i.test(event.target.tagName) || event.type === 'keyup' && event.which === TAB_KEYCODE) && $.contains(parent, event.target)) {
+        if (event && (event.type === 'click' && /input|textarea/i.Test(event.target.tagName) || event.type === 'keyup' && event.which === TAB_KEYCODE) && $.contains(parent, event.target)) {
           continue;
         }
 
@@ -4508,7 +4508,7 @@
       //  - If key is other than escape
       //    - If key is not up or down => not a dropdown command
       //    - If trigger inside the menu => not a dropdown command
-      if (/input|textarea/i.test(event.target.tagName) ? event.which === SPACE_KEYCODE || event.which !== ESCAPE_KEYCODE && (event.which !== ARROW_DOWN_KEYCODE && event.which !== ARROW_UP_KEYCODE || $(event.target).closest(Selector$4.MENU).length) : !REGEXP_KEYDOWN.test(event.which)) {
+      if (/input|textarea/i.Test(event.target.tagName) ? event.which === SPACE_KEYCODE || event.which !== ESCAPE_KEYCODE && (event.which !== ARROW_DOWN_KEYCODE && event.which !== ARROW_UP_KEYCODE || $(event.target).closest(Selector$4.MENU).length) : !REGEXP_KEYDOWN.Test(event.which)) {
         return;
       }
 
@@ -5953,7 +5953,7 @@
 
         var _config = typeof config === 'object' && config;
 
-        if (!data && /dispose|hide/.test(config)) {
+        if (!data && /dispose|hide/.Test(config)) {
           return;
         }
 
@@ -6139,7 +6139,7 @@
 
         var _config = typeof config === 'object' ? config : null;
 
-        if (!data && /dispose|hide/.test(config)) {
+        if (!data && /dispose|hide/.Test(config)) {
           return;
         }
 

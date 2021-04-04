@@ -3,10 +3,13 @@
 }
 
 <body onresize="ArrangePieces()" onclick="MoveIfNecessary(event)" onload="ArrangePieces()">
+    <script src="~/js/site.js"></script>
+
     <div class="imgbox">
         <img class="chess-board" id="ChessBoard" src="@Url.Content("~/images/Chess_Board.png")" alt="Chess Board">
 
         <button type="button" onclick="ArrangePieces()">Click me!</button>
+
 
         @{
 
@@ -93,131 +96,9 @@
                 ChessBoard[i1, j1] = 0;
             }
         }
-
-        <script>
-            function ArrangePieces() {
-                var board = document.getElementById('ChessBoard');
-                var Pos = board.offsetLeft;
-                var topPos = board.offsetTop;
-                var boardSize = board.offsetHeight;
-                var pieceSize = boardSize / 8;
-                var piece;
-                console.log(Pos);
-                console.log(topPos);
-                for (i = 0; i < 8; i++) {
-                    for (j = 0; j < 8; j++) {
-                        piece = document.getElementById('piece' + i + j);
-                        if (piece !== null) {
-
-                            document.getElementById('piece' + i + j).style.left = Pos + j * pieceSize + 'px';
-                            document.getElementById('piece' + i + j).style.top = topPos + i * pieceSize + 'px';
-                            console.log('piece' + i + j);
-                        }
-                    }
-                }
-            }
-
-            var MousePosition = null;
-
-            var initialiindex = null;
-            var initialjindex = null;
-
-            var finaliindex;
-            var finaljindex;
-
-            function MoveIfNecessary(e) {
-                var MeaningfulVariableName = e;
-
-                if (MousePosition === null) {
-                    GetMouseCoords(MeaningfulVariableName);
-                    if (MousePosition !== null) {
-                        TransformPosition(MousePosition);
-                    }
-                    return;
-                }
-
-                if (MousePosition !== null) {
-                    GetMouseCoords(MeaningfulVariableName);
-                    TransformPosition(MousePosition);
-                    if (MousePosition !== null) {
-                        @{
-                            //Move(initialiindex, initialjindex, finaliindex, finaljindex);
-                                }
-                        ArrangePieces();
-                    }
-                    MousePosition = null;
-                    return;
-                }
-            }
-
-            function GetMouseCoords(event) {
-                var xpos = event.clientX;
-                var ypos = event.clientY;
-                var board = document.getElementById('ChessBoard');
-                var leftPos = board.offsetLeft;
-                var topPos = board.offsetTop;
-                var boardSize = board.offsetHeight;
-
-                if (leftPos <= xpos && topPos <= ypos && (leftPos + boardSize) >= xpos && (topPos + boardSize) >= ypos) {
-                    MousePosition = "" + xpos + " " + ypos;
-                }
-                else {
-                    MousePosition = null;
-                }
-                console.log(MousePosition);
-            }
-
-            function TransformPosition(PointerPosition) {
-
-                var spacePos = PointerPosition.search(" ");
-                var pointerXpos = PointerPosition.substring(0, spacePos);
-                var pointerYpos = PointerPosition.substring(spacePos + 1, PointerPosition.length);
-
-                var board = document.getElementById('ChessBoard');
-                var boardLeftPos = board.offsetLeft;
-                var boardTopPos = board.offsetTop;
-                var boardSize = board.offsetHeight;
-                var squareSize = boardSize / 8;
-
-                var i;
-                var j;
-
-                for (i = 0; i < 8; i++) {
-                    for (j = 0; j < 8; j++) {
-                        if ((i * squareSize) + boardLeftPos < pointerXpos
-                            && ((i + 1) * squareSize + 1) + boardLeftPos > pointerXpos
-                            && (j * squareSize) + boardTopPos < pointerYpos
-                            && ((j + 1) * squareSize) + boardTopPos > pointerYpos) {
-                            if (initialiindex === null) {
-                                initialiindex = i;
-                                initialjindex = j;
-                            }
-                            else {
-                                finaliindex = i;
-                                finaljindex = j;
-                            }
-
-                        }
-                    }
-                }
-
-                console.log(initialiindex);
-                console.log(initialjindex);
-                console.log(finaliindex);
-                console.log(finaljindex);
-
-            }
-
-        </script>
-
-       
-
         <script>
 
         </script>
     </div>
-
-
-    
 </body>
 

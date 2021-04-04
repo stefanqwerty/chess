@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - api</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+
 </head>
 <body>
     <header>
@@ -25,7 +26,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Game" asp-action="Number" asp-route-num="22">Play yourself</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Game" asp-action="returnjson">Play yourself</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Game" asp-action="Online">Online</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" onclick="GetNumberFromServer()">Play online</a>
@@ -49,52 +50,11 @@
             &copy; 2021 - api - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/site.js"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
-
-    <button onclick="Test()">Click me</button>
-
-
-    <script>
-        function GetNumberFromServer() {
-            const uri = 'Game/Number'
-            fetch(`${uri}?num=${35}`, {
-                method: 'GET'
-            })
-                .then(response =>
-                    alert(response))
-                .then(data =>
-                    alert(data))
-
-                .catch(error => console.error('error:', error));
-        }
-
-        var jsonresponse;
-        var jsondata;
-        var jsonres;
-
-        function GetChessBoardFromServer() {
-            const uri = 'Game/GetChessMatrix'
-
-            fetch(uri)
-                .then(response =>
-                    response.json)
-                .then(data =>
-                    console.log(data))
-                .then((res) =>
-                    console.dir(res))
-                .then(console.log(response.json))
-                .catch(error => console.error('error:', error));
-
-
-        }
-    </script>
-
-    <script>
-        function Test() {
-        }
-    </script>
 </body>
 </html>

@@ -20,6 +20,11 @@ namespace api
             return View();
         }
 
+        public ActionResult Online()
+        {
+            return View();
+        }
+        
         //[HttpGet("{num}")]
         public string Number(int num)
         {
@@ -124,7 +129,7 @@ namespace api
 
         public string returnjson()
         {
-            Piece p = new Piece(Colour: Colour.Black, PieceType: PieceType.King, ImageFile: string.Empty);
+            Piece p = new Piece(Colour: Colour.Black, PieceType: PieceType.King);
             var js = JsonSerializer.Serialize(p);
 
             Game game = new Game();
