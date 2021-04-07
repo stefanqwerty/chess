@@ -38,12 +38,6 @@ C:\Users\stefa\source\repos\api\obj\Debug\net5.0\api.pdb
 C:\Users\stefa\source\repos\api\obj\Debug\net5.0\api.genruntimeconfig.cache
 C:\Users\stefa\source\repos\api\obj\Debug\net5.0\api.csproj.CopyComplete
 C:\Users\stefa\source\repos\api\bin\Debug\net5.0\wwwroot\css\site.css
-C:\Users\stefa\source\repos\api\bin\Debug\net5.0\wwwroot\images\black_bishop.png
-C:\Users\stefa\source\repos\api\bin\Debug\net5.0\wwwroot\images\black_king.png
-C:\Users\stefa\source\repos\api\bin\Debug\net5.0\wwwroot\images\black_knight.png
-C:\Users\stefa\source\repos\api\bin\Debug\net5.0\wwwroot\images\black_pawn.png
-C:\Users\stefa\source\repos\api\bin\Debug\net5.0\wwwroot\images\black_queen.png
-C:\Users\stefa\source\repos\api\bin\Debug\net5.0\wwwroot\images\black_rook.png
 C:\Users\stefa\source\repos\api\bin\Debug\net5.0\wwwroot\images\Chess_Board.png
 C:\Users\stefa\source\repos\api\bin\Debug\net5.0\wwwroot\images\pieces.png
 C:\Users\stefa\source\repos\api\bin\Debug\net5.0\wwwroot\images\white_bishop.png
@@ -55,3 +49,9 @@ C:\Users\stefa\source\repos\api\bin\Debug\net5.0\wwwroot\images\white_rook.png
 C:\Users\stefa\source\repos\api\obj\Debug\net5.0\Razor\Views\Game\Index.cshtml.g.cs
 C:\Users\stefa\source\repos\api\obj\Debug\net5.0\Razor\Views\Game\Online.cshtml.g.cs
 C:\Users\stefa\source\repos\api\obj\Debug\net5.0\api.csprojAssemblyReference.cache
+C:\Users\stefa\source\repos\api\bin\Debug\net5.0\wwwroot\images\black_bishop_1.png
+C:\Users\stefa\source\repos\api\bin\Debug\net5.0\wwwroot\images\black_king_1.png
+C:\Users\stefa\source\repos\api\bin\Debug\net5.0\wwwroot\images\black_knight_1.png
+C:\Users\stefa\source\repos\api\bin\Debug\net5.0\wwwroot\images\black_pawn_1.png
+C:\Users\stefa\source\repos\api\bin\Debug\net5.0\wwwroot\images\black_rook_1.png
+C:\Users\stefa\source\repos\api\bin\Debug\net5.0\wwwroot\images\black_queen_1.png

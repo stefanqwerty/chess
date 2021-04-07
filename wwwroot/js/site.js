@@ -30,6 +30,10 @@ function DrawBoard(chessPiecesJson) {
                 var img = document.createElement("img", id);
                 img.id = id;
                 var filename = "/images/" + colours[boardPos.Colour] + "_" + pieces[boardPos.PieceType] + ".png";
+                if (colours[boardPos.Colour] == black) {
+                    var filename = "/images/" + colours[boardPos.Colour] + "_" + pieces[boardPos.PieceType] + "_1.png";
+
+                }
                 img.src = filename;
                 img.className = "chess-pieces";
 
@@ -101,26 +105,16 @@ var MousePosition = null;
 var initialiindex = null;
 var initialjindex = null;
 
-var finaliindex;
-var finaljindex;
+var finaliindex = null;
+var finaljindex = null;
 
-function MoveIfNecessary(e) {
+function MoveIfNecessary(e, chessPieceJson) {
     var MeaningfulVariableName = e;
 
-    if (MousePosition !== null) {
-        GetMouseCoords(MeaningfulVariableName);
-        TransformPosition(MousePosition);
-        if (MousePosition !== null) {
-           
-            ArrangePieces();
-        }
-
-        MousePosition = null;
-        return;
-    }
-
-    if (MousePosition !== null) {
-
+    if (finaliindex !== null) {
+        chessPieceJson[finaljindex][finaliindex] = chessPieceJson[initialjindex][initialiindex];
+        chessPieceJson[initialjindex][initialiindex] = null;
+        DrawBoard(chessPieceJson);
     }
 }
 
@@ -138,6 +132,7 @@ function GetMouseCoords(event) {
     else {
         MousePosition = null;
     }
+
     console.log(MousePosition);
 }
 
@@ -175,10 +170,6 @@ function TransformPosition(PointerPosition) {
         }
     }
 
-    console.log(initialiindex);
-    console.log(initialjindex);
-    console.log(finaliindex);
-    console.log(finaljindex);
 
 }
 
