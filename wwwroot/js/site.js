@@ -16,7 +16,7 @@ function Test() {
 
 function DrawBoard(chessPiecesJson) {
 
-    var i, j;
+    var i, j;XMLDocument
 
     var colours = ["white", "black"];
     var pieces = ["", "pawn", "rook", "knight", "bishop", "queen", "king"];
@@ -30,7 +30,7 @@ function DrawBoard(chessPiecesJson) {
                 var img = document.createElement("img", id);
                 img.id = id;
                 var filename = "/images/" + colours[boardPos.Colour] + "_" + pieces[boardPos.PieceType] + ".png";
-                if (colours[boardPos.Colour] == black) {
+                if (colours[boardPos.Colour] == "black") {
                     var filename = "/images/" + colours[boardPos.Colour] + "_" + pieces[boardPos.PieceType] + "_1.png";
 
                 }
